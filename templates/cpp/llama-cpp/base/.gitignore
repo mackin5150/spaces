@@ -1,0 +1,4 @@
+build/
+models/
+.env
+vendor/llama.cpp/build/

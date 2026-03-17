@@ -1,0 +1,9 @@
+{
+  "name": "{{name}}",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "echo \"Replace with Vite or React app bootstrap in V1.5\"",
+    "build": "echo \"Replace with build tool later\""
+  }
+}
