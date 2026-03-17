@@ -5,20 +5,28 @@ use crate::workspace::huggingface::HuggingFaceWorkspace;
 use crate::workspace::lua::LuaWorkspace;
 use crate::workspace::node_express::NodeExpressWorkspace;
 use crate::workspace::node_hardhat::NodeHardhatWorkspace;
+use crate::workspace::node_nextjs::NodeNextjsWorkspace;
+use crate::workspace::node_sveltekit::NodeSveltekitWorkspace;
 use crate::workspace::node_vite::NodeViteWorkspace;
 use crate::workspace::python::PythonWorkspace;
+use crate::workspace::python_django::PythonDjangoWorkspace;
 use crate::workspace::python_fastapi::PythonFastapiWorkspace;
+use crate::workspace::python_flask::PythonFlaskWorkspace;
 use crate::workspace::react::NodeReactWorkspace;
 use crate::workspace::traits::WorkspaceAdapter;
 
 pub fn adapters() -> Vec<Box<dyn WorkspaceAdapter>> {
     vec![
         Box::new(PythonWorkspace::new()),
+        Box::new(PythonFlaskWorkspace::new()),
+        Box::new(PythonDjangoWorkspace::new()),
         Box::new(PythonFastapiWorkspace::new()),
         Box::new(HuggingFaceWorkspace::new()),
         Box::new(NodeExpressWorkspace::new()),
         Box::new(NodeHardhatWorkspace::new()),
+        Box::new(NodeNextjsWorkspace::new()),
         Box::new(NodeReactWorkspace::new()),
+        Box::new(NodeSveltekitWorkspace::new()),
         Box::new(NodeViteWorkspace::new()),
         Box::new(GoWorkspace::new()),
         Box::new(LuaWorkspace::new()),

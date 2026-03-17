@@ -1,3 +1,4 @@
+use crate::commands::bootstrap;
 use crate::error::SpacesError;
 use crate::models::workspace_request::WorkspaceRequest;
 use crate::workspace::manager::get_adapter;
@@ -22,6 +23,7 @@ pub fn run(request: WorkspaceRequest) -> Result<()> {
 
     fs::create_dir_all(&root)?;
     adapter.create(&root, &request)?;
+    let bootstrap_steps = bootstrap::run(&request)?;
 
     println!(
         "Created {} {} workspace at {}",
@@ -32,6 +34,13 @@ pub fn run(request: WorkspaceRequest) -> Result<()> {
     println!("Next:");
     println!("  cd {}", root.display());
     println!("  spaces doctor");
+    if !bootstrap_steps.is_empty() {
+        println!();
+        println!("Bootstrap:");
+        for step in bootstrap_steps {
+            println!("  {}", step);
+        }
+    }
 
     Ok(())
 }

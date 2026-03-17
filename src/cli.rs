@@ -23,6 +23,8 @@ pub enum Commands {
         #[arg(long, value_enum)]
         pm: Option<PackageManager>,
         #[arg(long)]
+        install: bool,
+        #[arg(long)]
         docker: bool,
         #[arg(long)]
         git: bool,
@@ -41,6 +43,8 @@ pub enum Commands {
         #[arg(long, value_enum)]
         pm: Option<PackageManager>,
         #[arg(long)]
+        install: bool,
+        #[arg(long)]
         docker: bool,
         #[arg(long)]
         git: bool,
@@ -58,6 +62,8 @@ pub enum Commands {
         #[arg(long, value_enum)]
         pm: Option<PackageManager>,
         #[arg(long)]
+        install: bool,
+        #[arg(long)]
         docker: bool,
         #[arg(long)]
         git: bool,
@@ -71,6 +77,8 @@ pub enum Commands {
         name: Option<String>,
         #[arg(long, value_enum, default_value_t = Stack::Basic)]
         stack: Stack,
+        #[arg(long)]
+        install: bool,
         #[arg(long)]
         docker: bool,
         #[arg(long)]
@@ -86,6 +94,8 @@ pub enum Commands {
         #[arg(long, value_enum, default_value_t = Stack::Basic)]
         stack: Stack,
         #[arg(long)]
+        install: bool,
+        #[arg(long)]
         docker: bool,
         #[arg(long)]
         git: bool,
@@ -98,6 +108,8 @@ pub enum Commands {
         name: Option<String>,
         #[arg(long, value_enum)]
         pm: Option<PackageManager>,
+        #[arg(long)]
+        install: bool,
         #[arg(long)]
         docker: bool,
         #[arg(long)]
@@ -112,11 +124,41 @@ pub enum Commands {
         #[arg(long, value_enum)]
         pm: Option<PackageManager>,
         #[arg(long)]
+        install: bool,
+        #[arg(long)]
         docker: bool,
         #[arg(long)]
         git: bool,
         #[arg(long)]
         tests: bool,
+    },
+    Flask {
+        path: String,
+        #[arg(long)]
+        name: Option<String>,
+        #[arg(long, value_enum)]
+        pm: Option<PackageManager>,
+        #[arg(long)]
+        install: bool,
+        #[arg(long)]
+        docker: bool,
+        #[arg(long)]
+        git: bool,
+        #[arg(long)]
+        tests: bool,
+    },
+    Django {
+        path: String,
+        #[arg(long)]
+        name: Option<String>,
+        #[arg(long, value_enum)]
+        pm: Option<PackageManager>,
+        #[arg(long)]
+        install: bool,
+        #[arg(long)]
+        docker: bool,
+        #[arg(long)]
+        git: bool,
     },
     Fastapi {
         path: String,
@@ -124,6 +166,8 @@ pub enum Commands {
         name: Option<String>,
         #[arg(long, value_enum)]
         pm: Option<PackageManager>,
+        #[arg(long)]
+        install: bool,
         #[arg(long)]
         docker: bool,
         #[arg(long)]
@@ -137,6 +181,8 @@ pub enum Commands {
         name: Option<String>,
         #[arg(long, value_enum)]
         pm: Option<PackageManager>,
+        #[arg(long)]
+        install: bool,
         #[arg(long)]
         docker: bool,
         #[arg(long)]
@@ -153,6 +199,34 @@ pub enum Commands {
         #[arg(long, value_enum)]
         pm: Option<PackageManager>,
         #[arg(long)]
+        install: bool,
+        #[arg(long)]
+        docker: bool,
+        #[arg(long)]
+        git: bool,
+    },
+    Nextjs {
+        path: String,
+        #[arg(long)]
+        name: Option<String>,
+        #[arg(long, value_enum)]
+        pm: Option<PackageManager>,
+        #[arg(long)]
+        install: bool,
+        #[arg(long)]
+        docker: bool,
+        #[arg(long)]
+        git: bool,
+    },
+    Sveltekit {
+        path: String,
+        #[arg(long)]
+        name: Option<String>,
+        #[arg(long, value_enum)]
+        pm: Option<PackageManager>,
+        #[arg(long)]
+        install: bool,
+        #[arg(long)]
         docker: bool,
         #[arg(long)]
         git: bool,
@@ -162,6 +236,8 @@ pub enum Commands {
         path: String,
         #[arg(long)]
         name: Option<String>,
+        #[arg(long)]
+        install: bool,
         #[arg(long)]
         docker: bool,
         #[arg(long)]

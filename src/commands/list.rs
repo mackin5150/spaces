@@ -18,9 +18,13 @@ pub fn run() -> Result<()> {
     println!("python       alias: pyworkspace");
     println!("hardhat      node hardhat preset");
     println!("express      node express preset");
+    println!("flask        python flask preset");
+    println!("django       python django preset");
     println!("fastapi      python fastapi preset");
     println!("huggingface  python huggingface preset");
     println!("vite         node vite preset");
+    println!("nextjs       node nextjs preset");
+    println!("sveltekit    node sveltekit preset");
     println!("llama-cpp    cpp llama.cpp preset");
     println!("go           alias: goworkspace");
     println!("lua          alias: luaworkspace");

@@ -21,8 +21,10 @@ impl WorkspaceConfig {
     pub fn language(&self) -> Option<Language> {
         self.language.clone().or_else(|| {
             self.kind.as_deref().and_then(|kind| match kind {
-                "python" | "fastapi" | "huggingface" => Some(Language::Python),
-                "react" | "hardhat" | "express" | "vite" => Some(Language::Node),
+                "python" | "fastapi" | "flask" | "django" | "huggingface" => Some(Language::Python),
+                "react" | "hardhat" | "express" | "vite" | "nextjs" | "sveltekit" => {
+                    Some(Language::Node)
+                }
                 "llama-cpp" => Some(Language::Cpp),
                 _ => None,
             })
@@ -33,9 +35,13 @@ impl WorkspaceConfig {
         self.stack.clone().or_else(|| {
             self.kind.as_deref().and_then(|kind| match kind {
                 "python" => Some(Stack::Basic),
+                "django" => Some(Stack::Django),
                 "fastapi" => Some(Stack::Fastapi),
+                "flask" => Some(Stack::Flask),
                 "huggingface" => Some(Stack::Huggingface),
+                "nextjs" => Some(Stack::Nextjs),
                 "react" => Some(Stack::React),
+                "sveltekit" => Some(Stack::Sveltekit),
                 "hardhat" => Some(Stack::Hardhat),
                 "express" => Some(Stack::Express),
                 "vite" => Some(Stack::Vite),

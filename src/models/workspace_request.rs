@@ -29,11 +29,15 @@ impl Language {
 #[serde(rename_all = "kebab-case")]
 pub enum Stack {
     Basic,
+    Django,
     Express,
     Fastapi,
+    Flask,
     Hardhat,
     Huggingface,
+    Nextjs,
     React,
+    Sveltekit,
     Vite,
     LlamaCpp,
 }
@@ -42,11 +46,15 @@ impl Stack {
     pub fn as_str(&self) -> &'static str {
         match self {
             Self::Basic => "basic",
+            Self::Django => "django",
             Self::Express => "express",
             Self::Fastapi => "fastapi",
+            Self::Flask => "flask",
             Self::Hardhat => "hardhat",
             Self::Huggingface => "huggingface",
+            Self::Nextjs => "nextjs",
             Self::React => "react",
+            Self::Sveltekit => "sveltekit",
             Self::Vite => "vite",
             Self::LlamaCpp => "llama-cpp",
         }
@@ -86,6 +94,7 @@ pub struct WorkspaceRequest {
     pub language: Language,
     pub stack: Stack,
     pub package_manager: PackageManager,
+    pub install: bool,
     pub docker: bool,
     pub git: bool,
     pub tests: bool,
@@ -99,6 +108,7 @@ impl WorkspaceRequest {
         language: Language,
         stack: Stack,
         package_manager: PackageManager,
+        install: bool,
         docker: bool,
         git: bool,
         tests: bool,
@@ -116,6 +126,7 @@ impl WorkspaceRequest {
             language,
             stack,
             package_manager,
+            install,
             docker,
             git,
             tests,
