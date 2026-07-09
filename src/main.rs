@@ -308,6 +308,7 @@ fn main() -> Result<()> {
             cuda,
         )?)?,
         Commands::List => commands::list::run()?,
+        Commands::Upgrade => commands::upgrade::run()?,
         Commands::Doctor => commands::doctor::run()?,
     }
 

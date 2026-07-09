@@ -270,5 +270,7 @@ pub enum Commands {
         cuda: bool,
     },
     List,
+    #[command(alias = "up")]
+    Upgrade,
     Doctor,
 }

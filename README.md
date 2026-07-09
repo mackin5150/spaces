@@ -53,8 +53,10 @@ All workspace commands accept these optional flags:
 ## Utility Commands
 
 ```bash
-spaces list    # Show all available workspace types and abbreviations
-spaces doctor  # Diagnose current workspace (run inside a project)
+spaces list      # Show all available workspace types and abbreviations
+spaces upgrade   # Update to latest version from GitHub Releases
+spaces up        # Alias for upgrade
+spaces doctor    # Diagnose current workspace (run inside a project)
 ```
 
 ## Examples
@@ -75,13 +77,26 @@ cd contracts && spaces hh --tests --git
 
 ## Installation
 
+From source (development):
+
 ```bash
+git clone https://github.com/mackin5150/spaces.git
+cd spaces
 cargo install --path .
 ```
 
-Or build from source:
+Or build locally:
 
 ```bash
 cargo build --release
 ./target/release/spaces --help
+```
+
+## Updating
+
+Once installed, update with a single command. Requires the binary to have been published as a GitHub Release on [`mackin5150/spaces`](https://github.com/mackin5150/spaces):
+
+```bash
+spaces upgrade
+# or: spaces up
 ```
