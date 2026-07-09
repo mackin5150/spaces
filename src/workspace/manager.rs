@@ -49,5 +49,8 @@ pub fn default_package_manager(language: &Language, stack: &Stack) -> PackageMan
             Language::Go => PackageManager::Go,
             Language::Lua => PackageManager::Make,
             Language::Cpp => PackageManager::Make,
+            Language::Rust => PackageManager::Cargo,
+            Language::Solidity => PackageManager::Forge,
+            Language::Java => PackageManager::Pip,
         })
 }

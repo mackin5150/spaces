@@ -269,6 +269,23 @@ pub enum Commands {
         #[arg(long)]
         cuda: bool,
     },
+    /// Scaffold a local inference interface for any text model (HF repo or local path)
+    /// Example: `spaces iface meta-llama/Llama-3.2-1B`  or  `spaces iface ./models/mistral/`
+    #[command(alias = "chat", alias = "serve")]
+    Iface {
+        /// HuggingFace repo ID (e.g. meta-llama/Llama-3.2-1B) or local model path
+        model: String,
+        #[arg(default_value = ".")]
+        path: String,
+        #[arg(long)]
+        name: Option<String>,
+        #[arg(long)]
+        install: bool,
+        #[arg(long)]
+        docker: bool,
+        #[arg(long)]
+        cuda: bool,
+    },
     List,
     #[command(alias = "up")]
     Upgrade,

@@ -19,6 +19,8 @@ pub fn run(request: &WorkspaceRequest) -> Result<Vec<String>> {
             PackageManager::Pip => ("pip", &["install", "-r", "requirements.txt"]),
             PackageManager::Go => ("go", &["mod", "tidy"]),
             PackageManager::Make => ("make", &["bootstrap"]),
+            PackageManager::Cargo => ("cargo", &["build"]),
+            PackageManager::Forge => ("forge", &["init"]),
         };
 
         process::run(program, args, &request.path)?;

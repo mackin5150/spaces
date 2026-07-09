@@ -34,5 +34,11 @@ pub fn run() -> Result<()> {
     println!("  sveltekit   aliases: sk, sv");
     println!("  llama-cpp   aliases: llamacpp, llm\n");
 
+    println!("\nInference interface — one-command chat UI for text models:\n");
+    println!("  iface <model>     alias: chat, serve");
+    println!("    Example: spaces iface meta-llama/Llama-3.2-1B   # clone + scaffold");
+    println!("              spaces iface ./models/mistral/          # local model path");
+    println!("              spaces iface mistralai/Mistral-7B-Instruct-v0.3 -i  # auto-install deps\n");
+
     Ok(())
 }

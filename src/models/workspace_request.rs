@@ -11,6 +11,9 @@ pub enum Language {
     Go,
     Lua,
     Cpp,
+    Rust,
+    Solidity,
+    Java,
 }
 
 impl Language {
@@ -21,6 +24,9 @@ impl Language {
             Self::Go => "go",
             Self::Lua => "lua",
             Self::Cpp => "cpp",
+            Self::Rust => "rust",
+            Self::Solidity => "solidity",
+            Self::Java => "java",
         }
     }
 }
@@ -40,6 +46,26 @@ pub enum Stack {
     Sveltekit,
     Vite,
     LlamaCpp,
+    // AI/ML stacks (Python)
+    Streamlit,
+    Gradio,
+    Langchain,
+    Pytorch,
+    // Node/Frontend stacks
+    Nestjs,
+    Astro,
+    Remix,
+    Nuxt,
+    Expo,
+    // Smart contract stacks
+    Foundry,
+    Anchor,
+    // Go stacks
+    Gin,
+    GrpcGo,
+    // Other language stacks
+    Axum,
+    Springboot,
 }
 
 impl Stack {
@@ -57,6 +83,26 @@ impl Stack {
             Self::Sveltekit => "sveltekit",
             Self::Vite => "vite",
             Self::LlamaCpp => "llama-cpp",
+            // AI/ML
+            Self::Streamlit => "streamlit",
+            Self::Gradio => "gradio",
+            Self::Langchain => "langchain",
+            Self::Pytorch => "pytorch",
+            // Node/Frontend
+            Self::Nestjs => "nestjs",
+            Self::Astro => "astro",
+            Self::Remix => "remix",
+            Self::Nuxt => "nuxt",
+            Self::Expo => "expo",
+            // Smart contracts
+            Self::Foundry => "foundry",
+            Self::Anchor => "anchor",
+            // Go
+            Self::Gin => "gin",
+            Self::GrpcGo => "grpc-go",
+            // Other
+            Self::Axum => "axum",
+            Self::Springboot => "springboot",
         }
     }
 }
@@ -71,6 +117,8 @@ pub enum PackageManager {
     Pip,
     Go,
     Make,
+    Cargo,
+    Forge,
 }
 
 impl PackageManager {
@@ -83,6 +131,8 @@ impl PackageManager {
             Self::Pip => "pip",
             Self::Go => "go",
             Self::Make => "make",
+            Self::Cargo => "cargo",
+            Self::Forge => "forge",
         }
     }
 }

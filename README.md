@@ -34,6 +34,7 @@ spaces hh ./smart-contract
 | `nextjs` | `nx`, `next` | Node.js | Next.js |
 | `sveltekit` | `sk`, `sv` | Node.js | SvelteKit |
 | `llama-cpp` | `llamacpp`, `llm` | C++ | llama.cpp |
+| `iface` | `chat`, `serve` | Python | Inference Interface (FastAPI + web UI) |
 
 ## Options
 
@@ -41,11 +42,12 @@ All workspace commands accept these optional flags:
 
 | Flag | Description |
 |------|-------------|
+| `<model>` | Model reference for `iface`: HF repo ID (`meta-llama/Llama-3.2-1B`) or local path (`./models/mistral/`) |
 | `--name <NAME>` | Project name (default: derived from path) |
 | `--stack <STACK>` | Framework/stack preset (where applicable) |
 | `--pm <MANAGER>` | Package manager (`npm`, `pnpm`, `yarn`, `uv`, `pip`, `go`, `make`) |
-| `--install` | Run package install after scaffold |
-| `--docker` | Generate Dockerfile + docker-compose |
+| `--install` / `-i` | Run package install after scaffold |
+| `--docker` | Generate Dockerfile (+ CUDA base image when `--cuda` is set) |
 | `--git` | Initialize git repository |
 | `--tests` | Include test scaffolding |
 | `--cuda` | Enable CUDA support (Python/C++ workspaces) |
@@ -73,6 +75,11 @@ spaces nx ./web --pm pnpm --docker
 
 # Hardhat smart contract project here, with tests
 cd contracts && spaces hh --tests --git
+
+# Inference interface — spin up a chat UI for any text model
+spaces iface meta-llama/Llama-3.2-1B            # scaffold in cwd, HF repo auto-downloaded
+spaces iface ./models/mistral/ my-chat-app       # local model path, custom project dir
+spaces iface Qwen/Qwen2.5-7B-Instruct --cuda -i  # CUDA support + auto-install deps
 ```
 
 ## Installation

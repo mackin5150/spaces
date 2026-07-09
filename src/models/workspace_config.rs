@@ -21,11 +21,17 @@ impl WorkspaceConfig {
     pub fn language(&self) -> Option<Language> {
         self.language.clone().or_else(|| {
             self.kind.as_deref().and_then(|kind| match kind {
-                "python" | "fastapi" | "flask" | "django" | "huggingface" => Some(Language::Python),
-                "react" | "hardhat" | "express" | "vite" | "nextjs" | "sveltekit" => {
+                "python" | "fastapi" | "flask" | "django" | "huggingface"
+                | "streamlit" | "gradio" | "langchain" | "pytorch" => Some(Language::Python),
+                "react" | "hardhat" | "express" | "vite" | "nextjs" | "sveltekit"
+                | "nestjs" | "astro" | "remix" | "nuxt" | "expo" => {
                     Some(Language::Node)
                 }
                 "llama-cpp" => Some(Language::Cpp),
+                "axum" => Some(Language::Rust),
+                "foundry" => Some(Language::Solidity),
+                "anchor" => Some(Language::Rust),
+                "springboot" => Some(Language::Java),
                 _ => None,
             })
         })
@@ -46,6 +52,26 @@ impl WorkspaceConfig {
                 "express" => Some(Stack::Express),
                 "vite" => Some(Stack::Vite),
                 "llama-cpp" => Some(Stack::LlamaCpp),
+                // AI/ML
+                "streamlit" => Some(Stack::Streamlit),
+                "gradio" => Some(Stack::Gradio),
+                "langchain" => Some(Stack::Langchain),
+                "pytorch" => Some(Stack::Pytorch),
+                // Node/Frontend
+                "nestjs" => Some(Stack::Nestjs),
+                "astro" => Some(Stack::Astro),
+                "remix" => Some(Stack::Remix),
+                "nuxt" => Some(Stack::Nuxt),
+                "expo" => Some(Stack::Expo),
+                // Smart contracts
+                "foundry" => Some(Stack::Foundry),
+                "anchor" => Some(Stack::Anchor),
+                // Go
+                "gin" => Some(Stack::Gin),
+                "grpc-go" => Some(Stack::GrpcGo),
+                // Other
+                "axum" => Some(Stack::Axum),
+                "springboot" => Some(Stack::Springboot),
                 _ => None,
             })
         })
@@ -60,6 +86,8 @@ impl WorkspaceConfig {
             "pip" => Some(PackageManager::Pip),
             "go" => Some(PackageManager::Go),
             "make" => Some(PackageManager::Make),
+            "cargo" => Some(PackageManager::Cargo),
+            "forge" => Some(PackageManager::Forge),
             _ => None,
         }
     }
