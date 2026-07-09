@@ -14,20 +14,25 @@ pub fn run() -> Result<()> {
         );
     }
 
-    println!("\nShortcut commands:");
-    println!("python       alias: pyworkspace");
-    println!("hardhat      node hardhat preset");
-    println!("express      node express preset");
-    println!("flask        python flask preset");
-    println!("django       python django preset");
-    println!("fastapi      python fastapi preset");
-    println!("huggingface  python huggingface preset");
-    println!("vite         node vite preset");
-    println!("nextjs       node nextjs preset");
-    println!("sveltekit    node sveltekit preset");
-    println!("llama-cpp    cpp llama.cpp preset");
-    println!("go           alias: goworkspace");
-    println!("lua          alias: luaworkspace");
+    println!("\nTIP: Omit the path argument to scaffold the workspace in your current directory.");
+    println!("  Example: spaces hf         -> installs HuggingFace workspace here");
+    println!("           spaces hf my-ai   -> installs into ./my-ai/\n");
+
+    println!("Shortcut commands and abbreviations:");
+    println!("  python      aliases: py, pyspace, pyworkspace");
+    println!("  node        aliases: njs, nodespace");
+    println!("  go          aliases: goworkspace, gospace");
+    println!("  lua         aliases: luaworkspace, luaspace");
+    println!("  hardhat     alias: hh");
+    println!("  express     alias: exp");
+    println!("  flask       alias: fl");
+    println!("  django      alias: dj");
+    println!("  fastapi     alias: fapi");
+    println!("  huggingface alias: hf");
+    println!("  vite        (already short)");
+    println!("  nextjs      aliases: nx, next");
+    println!("  sveltekit   aliases: sk, sv");
+    println!("  llama-cpp   aliases: llamacpp, llm\n");
 
     Ok(())
 }
